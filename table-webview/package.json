@@ -1,0 +1,46 @@
+{
+  "name": "@kieler/table-webview",
+  "version": "0.1.0",
+  "description": "Table as Webview",
+  "main": "helloworld.js",
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "eslint .",
+    "prebuild": "yarn clean",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "package": "yarn clean && yarn build",
+    "start": "node lib/helloworld.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kieler/JutilS.git"
+  },
+  "keywords": [
+    "table",
+    "webview",
+    "vscode"
+  ],
+  "author": "Kiel University <rt-kieler-devel@informatik.uni-kiel.de>",
+  "license": "EPL-2.0",
+  "bugs": {
+    "url": "https://github.com/kieler/JutilS/issues"
+  },
+  "homepage": "https://github.com/kieler/JutilS",
+  "engines": {
+    "node": "^14.17.1",
+    "yarn": "^1.22.10"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@types/vscode": "^1.80.0",
+    "snabbdom": "^3.5.1"
+  },
+  "devDependencies": {
+    "lerna": "^7.1.4",
+    "typescript": "^5.1.6"
+  }
+}
