@@ -5,7 +5,7 @@
 # Kieler JutilS
 Collection of utilities used by various Kieler tools. The utilities are published in individual npm packages.
 
-# List of utilities
+## List of utilities
 
 
 | package | Description |
