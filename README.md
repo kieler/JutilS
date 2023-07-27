@@ -8,6 +8,6 @@ Collection of utilities used by various Kieler tools. The utilities are publishe
 ## List of utilities
 
 
-| package | Description |
----|---
-| [table-webview](https://www.npmjs.com/package/@kieler/table-webview) | Generic table view for use in VS Code extensions. |
+| package | version | Description | 
+---|---|---
+| [table-webview](https://www.npmjs.com/package/@kieler/table-webview) | [![npm version](https://badge.fury.io/js/@kieler%2Ftable-webview.svg)](https://badge.fury.io/js/@kieler%2Ftable-webview) | Generic table view for use in VS Code extensions. |
