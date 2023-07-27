@@ -1,15 +1,16 @@
 {
   "name": "@kieler/table-webview",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Table as Webview",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "lint": "eslint .",
     "prebuild": "yarn clean",
     "build": "tsc",
     "watch": "tsc -w",
-    "package": "yarn clean && yarn build"
+    "package": "yarn clean && yarn build",
+    "publish:next": "yarn publish --new-version \"$(semver $npm_package_version -i minor)-next.$(git rev-parse --short HEAD)\" --tag next --no-git-tag-version"
   },
   "repository": {
     "type": "git",
@@ -36,11 +37,17 @@
   ],
   "typings": "./lib/index",
   "dependencies": {
-    "@types/vscode": "^1.80.0",
+    "@types/vscode": "^1.56.0",
+    "reflect-metadata": "^0.1.13",
     "snabbdom": "^3.5.1"
   },
   "devDependencies": {
-    "lerna": "^7.1.4",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
+    "rimraf": "^4.4.0",
+    "source-map-loader": "^3.0.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^9.2.6",
     "typescript": "^5.1.6"
   }
 }
