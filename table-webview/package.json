@@ -1,6 +1,6 @@
 {
   "name": "@kieler/table-webview",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Table as Webview",
   "main": "helloworld.js",
   "scripts": {
