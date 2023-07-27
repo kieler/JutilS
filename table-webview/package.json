@@ -2,15 +2,14 @@
   "name": "@kieler/table-webview",
   "version": "0.0.1",
   "description": "Table as Webview",
-  "main": "helloworld.js",
+  "main": "index.js",
   "scripts": {
     "clean": "rimraf lib",
     "lint": "eslint .",
     "prebuild": "yarn clean",
     "build": "tsc",
     "watch": "tsc -w",
-    "package": "yarn clean && yarn build",
-    "start": "node lib/helloworld.js"
+    "package": "yarn clean && yarn build"
   },
   "repository": {
     "type": "git",
@@ -35,6 +34,7 @@
     "lib",
     "src"
   ],
+  "typings": "./lib/index",
   "dependencies": {
     "@types/vscode": "^1.80.0",
     "snabbdom": "^3.5.1"

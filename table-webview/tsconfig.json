@@ -20,9 +20,9 @@
     "jsx": "react",
     "jsxFactory": "jsx",
     "sourceMap": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": [
     "src"
-  ]
+  ],
 }
