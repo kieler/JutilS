@@ -37,6 +37,8 @@ export class TableWebview {
     readonly localResourceRoots: vscode.Uri[];
 
     readonly scriptUri: vscode.Uri;
+    
+    readonly cssUri: vscode.Uri | undefined;
 
     webview: vscode.Webview;
 
@@ -56,10 +58,11 @@ export class TableWebview {
 
     public readonly initialized: vscode.Event<void | undefined> = this.initializedEmitter.event
 
-    constructor(identifier: string, localResourceRoots: vscode.Uri[], scriptUri: vscode.Uri) {
+    constructor(identifier: string, localResourceRoots: vscode.Uri[], scriptUri: vscode.Uri, cssUri?: vscode.Uri) {
         this.identifier = identifier;
         this.localResourceRoots = localResourceRoots;
         this.scriptUri = scriptUri;
+        this.cssUri = cssUri;
     }
 
     ready(): Promise<void> {
@@ -82,7 +85,8 @@ export class TableWebview {
         const title = this.getTitle();
         const diagramPanel = vscode.window.createWebviewPanel('table', title, vscode.ViewColumn.Beside, {
             localResourceRoots: this.localResourceRoots,
-            enableScripts: true
+            enableScripts: true,
+            retainContextWhenHidden: true
         });
         this.initializeWebview(diagramPanel.webview, title, headers);
         this.diagramPanel = diagramPanel;
@@ -99,6 +103,7 @@ export class TableWebview {
      */
     async initializeWebview(webview: vscode.Webview, title: string, headers: string[]) {
         this.headers = headers
+        const transformUri = (uri: vscode.Uri):string => webview.asWebviewUri(uri).toString();
         // TODO: We should not require an internet connection and link to an external web page for this to load properly - fontawesome has some nicer ways to be embedded into Typescript code.
         webview.html = `
             <!DOCTYPE html>
@@ -107,11 +112,12 @@ export class TableWebview {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, height=device-height">
                     <title>${title}</title>
+                    ${this.cssUri ? `<link rel="stylesheet" type="text/css" href="${transformUri(this.cssUri)}" />` : ''}
                 </head>
                 <body>
                     <div id="${this.identifier}_container" style="height: 100%;"></div>
                     <script> const vscode = acquireVsCodeApi();</script>
-                    <script src="${webview.asWebviewUri(this.scriptUri).toString()}"></script>
+                    <script src="${transformUri(this.scriptUri)}"></script>
                 </body>
             </html>`;
         this.webview = webview;
