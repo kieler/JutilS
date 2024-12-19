@@ -1,4 +1,4 @@
-name: release-table-webview
+name: release-package
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
       package:
         description: 'Package to release'
         required: true
+        type: choice
         options:
           - 'table-webview'
 
@@ -25,6 +26,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16.x
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@kieler'
       - run: yarn
       - run: yarn build
       - name: Publish ${{ inputs.package }}
