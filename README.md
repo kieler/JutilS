@@ -11,3 +11,9 @@ Collection of utilities used by various Kieler tools. The utilities are publishe
 | package | version | Description | 
 ---|---|---
 | [table-webview](https://www.npmjs.com/package/@kieler/table-webview) | [![npm version](https://badge.fury.io/js/@kieler%2Ftable-webview.svg)](https://badge.fury.io/js/@kieler%2Ftable-webview) | Generic table view for use in VS Code extensions. |
+
+
+## Releasing Packages
+The repository houses multiple packages that can be individually released to npm.
+To perform a release, make sure the version number in the `package.json` of the package-to-release has been updated to the new version.
+The release can then be automatically performed using the `release-package` workflow.
