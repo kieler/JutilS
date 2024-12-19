@@ -16,4 +16,4 @@ Collection of utilities used by various Kieler tools. The utilities are publishe
 ## Releasing Packages
 The repository houses multiple packages that can be individually released to npm.
 To perform a release, make sure the version number in the `package.json` of the package-to-release has been updated to the new version.
-The release can then be automatically performed using the `release-package` workflow.
+The release can then be automatically performed using the `release-package` [workflow](https://github.com/kieler/JutilS/actions/workflows/release-package.yml).
