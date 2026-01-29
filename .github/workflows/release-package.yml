@@ -10,6 +10,10 @@ on:
         options:
           - 'table-webview'
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -32,6 +36,3 @@ jobs:
       - run: yarn build
       - name: Publish ${{ inputs.package }}
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        
