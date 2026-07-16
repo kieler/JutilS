@@ -2,6 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
+    "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "noEmitOnError": true,
     "noImplicitThis": true,
@@ -10,11 +11,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es2017",
+    "moduleResolution": "bundler",
+    "target": "es2025",
+    "rootDir": "src",
     "outDir": "lib",
     "lib": [
-      "es2017",
+      "es2025",
       "dom"
     ],
     "jsx": "react",
